@@ -14,47 +14,47 @@ public class TriangleSquareTest {
 
     @Test
     @DisplayName("Вычисление площади треугольника. Успех.")
-    public void positiveSearchTriangleSquare(){
-        try {
-            triangle = triangleSquare.searchTriangleSquare(3, 4, 5);
-        } catch (ErrorExceptiion e) {
-            e.printStackTrace();
-        }
+    public void positiveSearchTriangleSquare() throws ErrorExceptiion {
+
+        triangle = triangleSquare.searchTriangleSquare(3, 4, 5);
         assertEquals(tryTriangleSquare, triangle);
     }
 
 
     @Test
     @DisplayName("Вычисление площади треугольника. Несуществующий треугольник.")
-    public void notTriangle () {
-        try {
-            triangle = triangleSquare.searchTriangleSquare(3, 4, 10);
-        } catch (ErrorExceptiion e) {
-            e.printStackTrace();
-        }
-        assertEquals (0, triangle);
+    public void notTriangle() {
+        Assertions.assertThrows(ErrorExceptiion.class, () -> triangleSquare.searchTriangleSquare(3, 5, 10));
+//        try {
+//            triangle = triangleSquare.searchTriangleSquare(3, 4, 10);
+//        } catch (ErrorExceptiion e) {
+//            e.printStackTrace();
+//        }
+        assertEquals(0, triangle);
     }
 
     @Test
     @DisplayName("Вычисление площади треугольника. Одна из сторон равна 0.")
-    public void oneSideNull () {
-        try {
-            triangle = triangleSquare.searchTriangleSquare(3, 0, 10);
-        } catch (ErrorExceptiion e) {
-            e.printStackTrace();
-        }
-        assertEquals (0, triangle);
+    public void oneSideNull() {
+        Assertions.assertThrows(ErrorExceptiion.class, () -> triangle = triangleSquare.searchTriangleSquare(3, 0, 10));
+//        try {
+//            triangle = triangleSquare.searchTriangleSquare(3, 0, 10);
+//        } catch (ErrorExceptiion e) {
+//            e.printStackTrace();
+//        }
+        assertEquals(0, triangle);
     }
 
     @Test
     @DisplayName("Вычисление площади треугольника. Значение однй из сторон отрицательное число.")
-    public void oneSideNegativeNumber () {
-        try {
-            triangle = triangleSquare.searchTriangleSquare(-3, 4, 10);
-        } catch (ErrorExceptiion e) {
-            e.printStackTrace();
-        }
-        assertEquals (0, triangle);
+    public void oneSideNegativeNumber() {
+        Assertions.assertThrows(ErrorExceptiion.class, () -> triangle = triangleSquare.searchTriangleSquare(-3, 4, 10));
+//        try {
+//            triangle = triangleSquare.searchTriangleSquare(-3, 4, 10);
+//        } catch (ErrorExceptiion e) {
+//            e.printStackTrace();
+//        }
+        assertEquals(0, triangle);
     }
 
 }
