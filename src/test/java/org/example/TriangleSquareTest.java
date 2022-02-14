@@ -14,32 +14,47 @@ public class TriangleSquareTest {
 
     @Test
     @DisplayName("Вычисление площади треугольника. Успех.")
-    public void positiveSearchTriangleSquare() {
-        triangle = triangleSquare.searchTriangleSquare(3, 4, 5);
-        assertEquals(triangle, tryTriangleSquare, "Площадь искомого треугольника не равна заданному значению");
-        System.out.println("Площадь искомого треугольника равна заданному значению");
+    public void positiveSearchTriangleSquare(){
+        try {
+            triangle = triangleSquare.searchTriangleSquare(3, 4, 5);
+        } catch (ErrorExceptiion e) {
+            e.printStackTrace();
+        }
+        assertEquals(tryTriangleSquare, triangle);
     }
 
 
     @Test
     @DisplayName("Вычисление площади треугольника. Несуществующий треугольник.")
     public void notTriangle () {
-        triangle = triangleSquare.searchTriangleSquare(3, 4, 10);
-        assertEquals (triangle, 0);
+        try {
+            triangle = triangleSquare.searchTriangleSquare(3, 4, 10);
+        } catch (ErrorExceptiion e) {
+            e.printStackTrace();
+        }
+        assertEquals (0, triangle);
     }
 
     @Test
     @DisplayName("Вычисление площади треугольника. Одна из сторон равна 0.")
     public void oneSideNull () {
-        triangle = triangleSquare.searchTriangleSquare(3, 0, 10);
-        assertEquals (triangle, 0);
+        try {
+            triangle = triangleSquare.searchTriangleSquare(3, 0, 10);
+        } catch (ErrorExceptiion e) {
+            e.printStackTrace();
+        }
+        assertEquals (0, triangle);
     }
 
     @Test
-    @DisplayName("Вычисление площади треугольника. Одна из сторон равна 0.")
+    @DisplayName("Вычисление площади треугольника. Значение однй из сторон отрицательное число.")
     public void oneSideNegativeNumber () {
-        triangle = triangleSquare.searchTriangleSquare(-3, 4, 10);
-        assertEquals (triangle, 0);
+        try {
+            triangle = triangleSquare.searchTriangleSquare(-3, 4, 10);
+        } catch (ErrorExceptiion e) {
+            e.printStackTrace();
+        }
+        assertEquals (0, triangle);
     }
 
 }
